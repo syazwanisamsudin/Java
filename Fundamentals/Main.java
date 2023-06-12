@@ -5,6 +5,7 @@ package com.syazwani;
 import java.awt.*; //To use Point object
 import java.util.Arrays;
 import java.util.Date; //To use Date object
+import java.util.Scanner; //To use Scanner library
 
 public class Main {
     public static void main(String[] args) {
@@ -64,6 +65,15 @@ public class Main {
         //System.out.println(Arrays.toString((numbers))); //Will print readable and neat array
         //System.out.println(Arrays.toString(numbers2));
 
+        //2-Dimensional Array
+        int[][] numbers3 = new int[2][3];
+        numbers3[0][0] = 1;
+        //System.out.printf(Arrays.deepToString(numbers3));
 
+        //Reading input
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter name: ");
+        String answer = input.nextLine().trim();
+        System.out.println("Entered input: " + answer);
     }
 }

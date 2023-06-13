@@ -1,6 +1,5 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-package com.syazwani;
 
 import java.lang.Math; //To use Math library
 import java.util.Scanner; //To use Scanner library
@@ -19,7 +18,7 @@ public class Main {
         double denominator = x - 1;
         double mortgage = principal * (numerator/denominator);
 
-        System.out.println("Mortgage: $" + Math.round(mortgage * 100/100.0));
+        System.out.println("Mortgage: $" + Math.round(mortgage * 100.0)/100.0);
     }
 
     public static void main(String[] args) {
@@ -28,16 +27,62 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Principal: ");
-        obj.principal = input.nextDouble();
+        try
+        {
+            while(true)
+            {
+                System.out.print("Principal (Enter from $1,000 ~ $100,000): ");
+                obj.principal = input.nextDouble();
+                if(obj.principal >= 1_000 && obj.principal <= 100_000)
+                {
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please enter within range! \n");
+                }
+            }
 
-        System.out.print("Annual Interest Rate: ");
-        obj.interestRate = (input.nextDouble() / 100) / 12;
+            while(true)
+            {
+                System.out.print("Annual Interest Rate (%): ");
+                obj.interestRate = input.nextDouble();
+                
+                if(obj.interestRate >= 1 && obj.interestRate <= 100.0)
+                {
+                    obj.interestRate = obj.interestRate / 100 /12;    
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please enter within range! \n");
+                }
+            }
 
-        System.out.print("Period (Years): ");
-        obj.numPayments = input.nextInt() * 12;
-
-        calculate(obj.interestRate, obj.principal, obj.numPayments);
+            while(true)
+            {
+                System.out.print("Period (Years) (1 ~ 30): ");
+                obj.numPayments = input.nextInt();
+                
+                if(obj.numPayments >=1 && obj.numPayments <= 30)
+                {
+                    obj.numPayments = input.nextInt() * 12;
+                    break;
+                }
+                else
+                {
+                    System.out.println("Please enter within range! \n");
+                }
+            }
+            
+            calculate(obj.interestRate, obj.principal, obj.numPayments);
+        }
+        catch(Exception e)
+        {
+            System.out.println("We dont accept any weird input. Try again ='(");
+        }
+        
+        System.exit(0);
 
     }
 }

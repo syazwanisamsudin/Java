@@ -10,3 +10,20 @@ Spring Notes
 - Check Maven > Choose latest Spring Boot > Add dependencies (Spring Web)
 
 3. Click 'Generate'
+
+4. After download > Go to /src/com.<etc>/ > Create new folder named 'Controller' > Create new class called '<anyname>Controller'
+
+5. Paste this code in the new controller
+@GetMapping("/helloworld")
+public String text(){
+  return "Hello world";
+}
+
+6. Go to terminal and make sure environment variable is already set in Step 1
+
+7. In Windows run this, mvnw spring-boot:run & in Mac run this, ./mvnw spring-boot:run
+
+8. Go to browser and enter this URL localhost:8080/<path-set>.
+In this case, I would enter localhost:8080/helloworld
+
+9. Any changes made in the code, you no need to re-run by entering CTRL + C and run again

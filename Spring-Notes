@@ -1,0 +1,12 @@
+Spring Notes
+
+1. Download JDK
+- Move JDK Folder to Program Files
+- Go to Environment Variable 
+- Set Path - C:\Java\SDK<Version>\bin
+- Set JAVA_HOME in System Variable - C:\Java\SDK<Version>
+
+2. Go to https://start.spring.io/
+- Check Maven > Choose latest Spring Boot > Add dependencies (Spring Web)
+
+3. Click 'Generate'

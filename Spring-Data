@@ -1,0 +1,12 @@
+- Repository interfaces provided by Spring Data JPA, such as CrudRepository
+
+- CrudRepository actually impilicitly a bean
+
+- Dependency is like you declare another class and inject it as parameter in th constructor
+
+- Use Iterable<Class name> 
+
+- To test the method with defined mapping "curl localhost:4001/plants"
+
+- To test POST Method 
+curl -X POST <URL/base> -H <Content-type> -d <parameter>

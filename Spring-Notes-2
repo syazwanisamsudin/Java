@@ -1,0 +1,34 @@
+Spring Notes 2
+
+All of below annotations need to be imported incl. @RequestParam etc.
+For example; import xxx 
+
+@RestController
+@RequestMapping("/base")
+- Can use in early class so no need to repeat for every method
+
+@GetMapping("/{id})")
+public String text(@PathVariable int id)
+- For dynamic id
+
+@GetMapping("/books")
+public Book getBookDetails(@RequestParam String author, @RequestParam String ISBN)
+
+@GetMapping("/books")
+public Book getBookPriceDetails(@RequestBody Book bookParam)
+
+@RequestMapping()
+- Use this when same as base
+
+@GetMapping("/books")
+public Book getBookDetails(@RequestParam String author, @RequestParam String ISBN)
+{
+  if (isExist == true){
+      //code
+  }
+  else{
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parameter passed is not valid!");
+  }
+}
+
+HttpStatus can be >> BAD_REQUEST >> NOT_FOUND >> OK >> MOVED_PERMANENTLY
